@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,192 +7,546 @@
     <meta name="robots" content="index,follow">
     <meta name="author" content="Misael_Gomez Cuautle">
     <meta name="content" content="Mobile-First">
-    <meta name="description" content="Proyecto Mobile-First">
+    <meta name="description" content="Proyecto Batatabit - Rediseño Minimalista Futurista">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 930px)">
-    <title>Document</title>
+    <title>Batatabit - La Próxima Revolución Cripto</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">      
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">      
 </head>
-<body>  <!--usamos metodologia BEM en nuestras clases-->
+<body>
+    <!-- Grid/Mesh Background -->
+    <div class="cyber-grid"></div>
+    <div class="cyber-glow-orb orb-1"></div>
+    <div class="cyber-glow-orb orb-2"></div>
+
     <header>
-        <img src="./assets/img/logo.svg" alt="Logotipo de Batatabit">
+        <div class="header--logo-container">
+            <img src="./assets/img/logo.svg" alt="Logotipo de Batatabit" class="logo-glow">
+        </div>
         <div class="header--title-container">
-            <h1>La próxima revolución en el intercambio de criptromonedas</h1> 
-            <p>Batatabit te ayuda a navegar entre los diferentes precios y tendencias.</p>
-            <a class="header--button" href="#planes">Conoce nuestros planes<span></span></a>
+            <h1 class="glitch-text">La próxima revolución en el intercambio de criptomonedas</h1> 
+            <p>Navega de forma inteligente entre precios, tendencias y comisiones en tiempo real con nuestra suite de análisis predictivo.</p>
+            <a class="header--button-futuristic" href="#planes">Explorar Planes <span class="arrow-glow"></span></a>
         </div>
     </header>
-    <main>
-        <section class="main-exchange-container">
-            <div class="backgroundImg"></div>
-            <div class="main-exchange-container--title">
-                <h2>Visibilizamos todas las tasas de cambio.</h2>
-                <p>Traemos información en tiempo real de las casas de cambio y las monedas más importantes del mundo</p>
-            </div>
-            <section class="main-tables-container">
 
-                <div>
-                    <br>
-                </div> 
-                <!--AQUI ES-->
-                <div class="main-currency-table">
-                    <p class="currency-table--title">Monedas</p>
+    <main>
+        <!-- SECCIÓN 1: Intercambio y Dashboard Interactivo -->
+        <section class="main-exchange-container">
+            <div class="main-exchange-container--title">
+                <h2>Monitoreo en Tiempo Real</h2>
+                <p>Información en vivo directo de las casas de cambio más importantes del mundo.</p>
+            </div>
+
+            <!-- Gráfico Interactivo de Precios en Vivo -->
+            <div class="dashboard-panel glass-card">
+                <div class="dashboard-header">
+                    <div class="dashboard-tabs">
+                        <button class="tab-btn active" onclick="switchChartAsset('BTC')">BTC</button>
+                        <button class="tab-btn" onclick="switchChartAsset('ETH')">ETH</button>
+                        <button class="tab-btn" onclick="switchChartAsset('XRP')">XRP</button>
+                    </div>
+                    <div class="dashboard-price-info">
+                        <span id="dashboard-asset-price" class="current-price">$64,250.00</span>
+                        <span id="dashboard-asset-change" class="price-change up">+2.4% ↑</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="liveChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Contenedor de Tablas de Cambio -->
+            <section class="main-tables-container">
+                <!-- Tabla de Monedas -->
+                <div class="main-currency-table glass-card">
+                    <p class="currency-table--title">Monedas de Referencia</p>
                     <div class="currency-table--container">
                         <table>
-                            <tr> <!--referencia a las filas de las tablas-->
-                                <td class="table__top-left">Bitcoin</td><!--metodologia BEM modificador especial con __ para diferenciar un elemento, de un bloque, o un modificador, en este cado es modificador especial-->
-                                <td class="table__top-right table__right">$1.96 <span class="down"></span></td><!--referencia a la informacion de la fila-->
+                            <tr>
+                                <td class="table__top-left">Bitcoin <span class="badge">BTC</span></td>
+                                <td class="table__top-right table__right">$64,250.00 <span class="trend-up"></span></td>
                             </tr>
                             <tr>
-                                <td>Ethereum</td>
-                                <td class="table__right">$0.07 <span class="height"></span></td>
+                                <td>Ethereum <span class="badge">ETH</span></td>
+                                <td class="table__right">$3,450.25 <span class="trend-up"></span></td>
                             </tr>
                             <tr>
-                                <td>Ripple</td>
-                                <td class="table__right">$2.17 <span class="down"></span></td>
+                                <td>Ripple <span class="badge">XRP</span></td>
+                                <td class="table__right">$0.58 <span class="trend-down"></span></td>
                             </tr>
                             <tr>
-                                <td class="table__bottom-left">Stellar</td>
-                                <td class="table__bottom-right table__right">$4.96<span class="down"></span></td>
+                                <td class="table__bottom-left">Stellar <span class="badge">XLM</span></td>
+                                <td class="table__bottom-right table__right">$0.12 <span class="trend-down"></span></td>
                             </tr>
                         </table>
                     </div>
                     <div class="currency-table--date">
-                        <p> <b>Actualizado:</b> <script> document.write(new Date().toLocaleString());</script></p>
+                        <p><b>Actualizado:</b> <span id="update-time-currencies"></span></p>
                     </div>
                 </div>
 
-                <div class="main-currency-table1">
-                    <span class="table1-span1"></span>
-                    <span class="table1-span2"></span>
-                </div>
-
-                <div class="main-comision-table"> <!--tabla 2-->
-                    <p class="comision-table--title">Comisiones</p>
+                <!-- Tabla de Comisiones -->
+                <div class="main-comision-table glass-card">
+                    <p class="comision-table--title">Tarifas de Intercambio</p>
                     <div class="comision-table--container">
                         <table>
-                            <tr> <!--referencia a las filas de las tablas-->
-                                <td class="table__top-left">Bitrade</td><!--metodologia BEM modificador especial con __ para diferenciar un elemento, de un bloque, o un modificador, en este cado es modificador especial-->
-                                <td class="table__top-right table__right">$12.96</td><!--referencia a la informacion de la fila-->
+                            <tr>
+                                <td class="table__top-left">Bitrade</td>
+                                <td class="table__top-right table__right">0.05%</td>
                             </tr>
                             <tr>
                                 <td>Bitpreco</td>
-                                <td class="table__right">$14.07</td>
+                                <td class="table__right">0.07%</td>
                             </tr>
                             <tr>
                                 <td>Novadax</td>
-                                <td class="table__right">$14.15</td>
+                                <td class="table__right">0.12%</td>
                             </tr>
                             <tr>
                                 <td class="table__bottom-left">Coinext</td>
-                                <td class="table__bottom-right table__right">$14.96</td>
+                                <td class="table__bottom-right table__right">0.15%</td>
                             </tr>
                         </table>
                     </div>
                     <div class="comision-table--date">
-                        <p> <b>Actualizado:</b> <script> document.write(new Date().toLocaleString());</script></p>
+                        <p><b>Actualizado:</b> <span id="update-time-comisions"></span></p>
                     </div>
                 </div>
-
-                <div>
-                    <br>
-                </div>
             </section>
+
+            <!-- Conversor Interactivo Cripto -->
+            <div class="converter-panel glass-card">
+                <h3>Calculadora de Conversión</h3>
+                <p class="subtitle">Calcula conversiones instantáneas a valores del mercado actual</p>
+                <div class="converter-form">
+                    <div class="input-group">
+                        <label for="converter-input-amount">Tú envías</label>
+                        <div class="input-field-container">
+                            <input type="number" id="converter-input-amount" value="1" oninput="calculateConversion()">
+                            <select id="converter-from" onchange="calculateConversion()">
+                                <option value="BTC">BTC</option>
+                                <option value="ETH">ETH</option>
+                                <option value="XRP">XRP</option>
+                                <option value="USD">USD</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-arrow">⇆</div>
+                    <div class="input-group">
+                        <label for="converter-result">Tú recibes</label>
+                        <div class="input-field-container">
+                            <input type="text" id="converter-result" readonly>
+                            <select id="converter-to" onchange="calculateConversion()">
+                                <option value="USD">USD</option>
+                                <option value="BTC">BTC</option>
+                                <option value="ETH">ETH</option>
+                                <option value="XRP">XRP</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
+        <!-- SECCIÓN 2: Detalles del Producto / Características -->
         <section class="main-product-detail">
             <span class="product-detail-batata-logo"></span>
             <div class="product-detail--title">
-                <h2>Creamos un producto sin comparación.</h2>
-                <p>Confiable y diseñado para su uso diario.</p>
+                <h2>Diseñado para el futuro</h2>
+                <p>Nuestra infraestructura combina velocidad de cómputo y seguridad criptográfica avanzada.</p>
             </div>
             <section class="product-cards--container">
-                <article class="product-detail--card">
-                    <span class="clock"></span>
-                    <p class="product--card-title">Tiempo real</p>
-                    <p class="product--card-body">Nuestro API toma información minuto a minuto sobre las tasas que más determinan el comportamiento.</p>
+                <article class="product-detail--card glass-card">
+                    <div class="card-icon-container">
+                        <span class="clock"></span>
+                    </div>
+                    <p class="product--card-title">Feed en Tiempo Real</p>
+                    <p class="product--card-body">API de ultra-baja latencia con actualización cada 500ms directo de la blockchain.</p>
                 </article>
-                <article class="product-detail--card">
-                    <span class="eye"></span>
-                    <p class="product--card-title">No hay tasas escondidas</p>
-                    <p class="product--card-body">Ni en la compra o al momento de exit, Batabit siempre te muestra el costo real de lo que estás adquiriendo.</p>
+                <article class="product-detail--card glass-card">
+                    <div class="card-icon-container">
+                        <span class="eye"></span>
+                    </div>
+                    <p class="product--card-title">Cero Comisiones Ocultas</p>
+                    <p class="product--card-body">Sin recargos fantasma. Muestra transparente del spread en cada orden ejecutada.</p>
                 </article>
-                <article class="product-detail--card">
-                    <span class="dolar"></span>
-                    <p class="product--card-title">Compara monedas</p>
-                    <p class="product--card-body">No más rumores, con Babtabit sabrás el valor real de cada moneda en el mercado actual.</p>
+                <article class="product-detail--card glass-card">
+                    <div class="card-icon-container">
+                        <span class="dolar"></span>
+                    </div>
+                    <p class="product--card-title">Análisis Arbitraje</p>
+                    <p class="product--card-body">Algoritmo inteligente que escanea spreads entre diferentes exchanges globales.</p>
                 </article>
-                <article class="product-detail--card">
-                    <span class="paloma"></span>
-                    <p class="product--card-title">Información confiable</p>
-                    <p class="product--card-body">Nuestras fuentes están 100% verificadas y continuamos auditando su contenido mientras se actualizan.</p>
+                <article class="product-detail--card glass-card">
+                    <div class="card-icon-container">
+                        <span class="paloma"></span>
+                    </div>
+                    <p class="product--card-title">Seguridad Militar</p>
+                    <p class="product--card-body">Auditorías constantes y almacenamiento en frío multifirma de extremo a extremo.</p>
                 </article>
             </section>
         </section>
+
+        <!-- Banner Bitcoin -->
         <section class="bitcoin-img-container">
-            <h2>Conócelo hoy.</h2>
+            <div class="overlay"></div>
+            <h2 class="glowing-headline">Monitorea desde cualquier parte.</h2>
         </section>
+
+        <!-- SECCIÓN 3: Planes y Suscripción -->
         <section id="planes" class="main-plans-container">
             <div class="plans--title">
-                <h2>Escoge el plan que mejor se ajuste a ti.</h2>
-                <p>Cualquier plan te da acceso completo a nuestra plataforma.</p>
+                <h2>Elige tu pase de acceso</h2>
+                <p>Acceso ilimitado a nuestros dashboards interactivos de mercado y herramientas avanzadas.</p>
+                
+                <!-- Toggle de Facturación Mensual / Anual -->
+                <div class="billing-toggle-container">
+                    <span class="toggle-label" id="label-monthly">Mensual</span>
+                    <label class="switch">
+                        <input type="checkbox" id="billing-checkbox" onchange="toggleBillingCycle()">
+                        <span class="slider-round"></span>
+                    </label>
+                    <span class="toggle-label" id="label-yearly">Anual <span class="badge-saving">Ahorra 25%</span></span>
+                </div>
             </div>
+
             <section class="plans-container--slider">
-                <article>
-                    <br> 
-                </article>
-                <article class="plans-container--card">
-                    <p class="recommended recommended2">Plan mensual</p>
+                <article class="plans-container--card glass-card-plan">
+                    <p class="recommended recommended2">Estándar</p>
                     <div class="plan-info-container">
-                        <h3 class="plan-card--title">Pago Mensual</h3>
-                        <p class="plan-card--price"><span>$</span>19</p>
-                        <p class="plan-card--saving">* Con opción a suspender y renovar sin costo</p>
-                        <button class="plan-card--ca">Escoger este <span></span></button>
+                        <h3 class="plan-card--title">Plan Mensual</h3>
+                        <p class="plan-card--price"><span>$</span><span id="price-standard">19</span></p>
+                        <p class="plan-card--saving" id="save-standard">* Cancela en cualquier momento sin penalizaciones.</p>
+                        <button class="plan-card--ca-futuristic">Comenzar</button>
                     </div>
                 </article>
 
-                <article class="plans-container--card">
+                <article class="plans-container--card glass-card-plan active-plan">
                     <p class="recommended">Recomendado</p>
                     <div class="plan-info-container">
-                        <h3 class="plan-card--title">Pago Anual</h3>
-                        <p class="plan-card--price"><span>$</span>99</p>
-                        <p class="plan-card--saving">* Ahorras $129 comparado al plan mensual.</p>
-                        <button class="plan-card--ca">Escoger este <span></span></button>
+                        <h3 class="plan-card--title">Pase Anual VIP</h3>
+                        <p class="plan-card--price"><span>$</span><span id="price-vip">99</span></p>
+                        <p class="plan-card--saving" id="save-vip">* Ahorra más del 30% en facturación anual.</p>
+                        <button class="plan-card--ca-futuristic primary-btn">Comenzar</button>
                     </div>
                 </article>
 
-                <article class="plans-container--card">
-                    <p class="recommended recommended3">Dou</p>
+                <article class="plans-container--card glass-card-plan">
+                    <p class="recommended recommended3">Dúo</p>
                     <div class="plan-info-container">
-                        <h3 class="plan-card--title">Pago Mensual</h3>
-                        <p class="plan-card--price"><span>$</span>30</p>
-                        <p class="plan-card--saving">* Comparte el plan con un amig@ o familia</p>
-                        <button class="plan-card--ca">Escoger este <span></span></button>
+                        <h3 class="plan-card--title">Plan Multicuenta</h3>
+                        <p class="plan-card--price"><span>$</span><span id="price-duo">30</span></p>
+                        <p class="plan-card--saving" id="save-duo">* Acceso simultáneo para 2 dispositivos con alertas.</p>
+                        <button class="plan-card--ca-futuristic">Comenzar</button>
                     </div>
                 </article>
-
-                <article>
-                    <br>
-                </article>
-
             </section>
         </section>
     </main>
+
     <footer>
         <section class="left">
             <ul>
-                <li><a href="#">LinkedIn</a></li> <!--el # es para que no refresque la pagina al hacerle click-->
-                <li><a href="#">Crunchbase</a></li>
-                <li><a href="#">Hackernews</a></li>
+                <li><a href="#" class="footer-link">LinkedIn</a></li>
+                <li><a href="#" class="footer-link">Crunchbase</a></li>
+                <li><a href="#" class="footer-link">Hackernews</a></li>
             </ul>
         </section>
         <section class="right">
-            <img  loading="lazy"  src="./assets/img/logo-footer.svg" alt="Logo de Batatabit 2020">
+            <img loading="lazy" src="./assets/img/logo-footer.svg" alt="Logo de Batatabit 2026" class="footer-logo">
         </section>
     </footer>
+
+    <!-- Contenedor de Toasts -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- JS interactivo y dinámico -->
+    <script>
+        // Formatear fecha
+        function updateDates() {
+            const now = new Date().toLocaleString();
+            const curEl = document.getElementById('update-time-currencies');
+            const comEl = document.getElementById('update-time-comisions');
+            if (curEl) curEl.textContent = now;
+            if (comEl) comEl.textContent = now;
+        }
+        updateDates();
+
+        // Conversor de Criptomonedas
+        const rates = {
+            BTC: 64250.00,
+            ETH: 3450.25,
+            XRP: 0.58,
+            USD: 1.00
+        };
+
+        function calculateConversion() {
+            const amountInput = document.getElementById('converter-input-amount');
+            const fromSelect = document.getElementById('converter-from');
+            const toSelect = document.getElementById('converter-to');
+            const resultInput = document.getElementById('converter-result');
+
+            if (!amountInput || !fromSelect || !toSelect || !resultInput) return;
+
+            const amount = parseFloat(amountInput.value) || 0;
+            const fromRate = rates[fromSelect.value];
+            const toRate = rates[toSelect.value];
+
+            // Convert into USD base first
+            const amountInUSD = amount * fromRate;
+            // Convert from USD to target currency
+            const result = amountInUSD / toRate;
+
+            if (toSelect.value === 'USD') {
+                resultInput.value = result.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+            } else {
+                resultInput.value = result.toFixed(6);
+            }
+        }
+        calculateConversion();
+
+        // Billing Cycle Toggle (Mensual / Anual)
+        function toggleBillingCycle() {
+            const isYearly = document.getElementById('billing-checkbox').checked;
+            const labelMonthly = document.getElementById('label-monthly');
+            const labelYearly = document.getElementById('label-yearly');
+
+            const priceStandard = document.getElementById('price-standard');
+            const priceVip = document.getElementById('price-vip');
+            const priceDuo = document.getElementById('price-duo');
+
+            const saveStandard = document.getElementById('save-standard');
+            const saveVip = document.getElementById('save-vip');
+            const saveDuo = document.getElementById('save-duo');
+
+            if (isYearly) {
+                labelYearly.classList.add('active-billing');
+                labelMonthly.classList.remove('active-billing');
+
+                // Precios anuales (con descuento)
+                priceStandard.textContent = "14"; // 19 - 25% ~ 14.25
+                priceVip.textContent = "74"; // 99 - 25% ~ 74.25
+                priceDuo.textContent = "22"; // 30 - 25% ~ 22.5
+
+                saveStandard.textContent = "* Facturado anualmente ($168/año)";
+                saveVip.textContent = "* Facturado anualmente ($888/año) - Ahorras $300!";
+                saveDuo.textContent = "* Facturado anualmente ($264/año)";
+            } else {
+                labelMonthly.classList.add('active-billing');
+                labelYearly.classList.remove('active-billing');
+
+                // Precios mensuales estándar
+                priceStandard.textContent = "19";
+                priceVip.textContent = "99";
+                priceDuo.textContent = "30";
+
+                saveStandard.textContent = "* Cancela en cualquier momento sin penalizaciones.";
+                saveVip.textContent = "* Ahorra más del 30% en facturación anual.";
+                saveDuo.textContent = "* Acceso simultáneo para 2 dispositivos con alertas.";
+            }
+        }
+        document.getElementById('label-monthly')?.classList.add('active-billing');
+
+        // Gráfico en Vivo (Simulación en Canvas)
+        let activeAsset = 'BTC';
+        let chartData = [];
+        const canvas = document.getElementById('liveChart');
+        let ctx = canvas ? canvas.getContext('2d') : null;
+        let animationId;
+
+        // Inicializar datos para el gráfico
+        function initChartData() {
+            chartData = [];
+            let price = rates[activeAsset];
+            for (let i = 0; i < 30; i++) {
+                price = price + (Math.random() - 0.5) * (price * 0.015);
+                chartData.push(price);
+            }
+        }
+
+        function switchChartAsset(asset) {
+            activeAsset = asset;
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent === asset) btn.classList.add('active');
+            });
+            
+            // Actualizar precios e información
+            const priceEl = document.getElementById('dashboard-asset-price');
+            const changeEl = document.getElementById('dashboard-asset-change');
+            
+            if (priceEl && changeEl) {
+                const price = rates[asset];
+                priceEl.textContent = price.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+                
+                const percent = (Math.random() * 5).toFixed(2);
+                const isUp = Math.random() > 0.4;
+                if (isUp) {
+                    changeEl.textContent = `+${percent}% ↑`;
+                    changeEl.className = "price-change up";
+                } else {
+                    changeEl.textContent = `-${percent}% ↓`;
+                    changeEl.className = "price-change down";
+                }
+            }
+
+            initChartData();
+        }
+
+        function drawChart() {
+            if (!ctx || !canvas) return;
+
+            // Ajustar resolución de canvas
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Simular actualización del último precio
+            const lastIndex = chartData.length - 1;
+            const currentPrice = chartData[lastIndex] + (Math.random() - 0.5) * (chartData[lastIndex] * 0.002);
+            chartData.shift();
+            chartData.push(currentPrice);
+
+            // Actualizar precio en cabecera
+            const priceEl = document.getElementById('dashboard-asset-price');
+            if (priceEl) {
+                priceEl.textContent = currentPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+            }
+
+            const min = Math.min(...chartData) * 0.999;
+            const max = Math.max(...chartData) * 1.001;
+            const range = max - min;
+
+            // Dibujar cuadrícula de fondo
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+            ctx.lineWidth = 1;
+            const gridLines = 5;
+            for (let i = 0; i <= gridLines; i++) {
+                const y = (canvas.height / gridLines) * i;
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+
+                const x = (canvas.width / gridLines) * i;
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+
+            // Mapeo de coordenadas
+            const points = chartData.map((val, index) => {
+                const x = (canvas.width / (chartData.length - 1)) * index;
+                const y = canvas.height - ((val - min) / range) * canvas.height;
+                return { x, y };
+            });
+
+            // Dibujar gradiente de relleno debajo de la línea
+            const fillGrad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            fillGrad.addColorStop(0, 'rgba(0, 240, 255, 0.15)');
+            fillGrad.addColorStop(1, 'rgba(139, 92, 246, 0.0)');
+            
+            ctx.beginPath();
+            ctx.moveTo(points[0].x, canvas.height);
+            points.forEach(pt => ctx.lineTo(pt.x, pt.y));
+            ctx.lineTo(points[points.length - 1].x, canvas.height);
+            ctx.closePath();
+            ctx.fillStyle = fillGrad;
+            ctx.fill();
+
+            // Dibujar la línea de precio neon
+            ctx.beginPath();
+            ctx.moveTo(points[0].x, points[0].y);
+            for (let i = 1; i < points.length; i++) {
+                // Curva de bezier simple para suavizar la línea
+                const xc = (points[i].x + points[i - 1].x) / 2;
+                const yc = (points[i].y + points[i - 1].y) / 2;
+                ctx.quadraticCurveTo(points[i - 1].x, points[i - 1].y, xc, yc);
+            }
+            ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
+            
+            ctx.strokeStyle = '#00f0ff';
+            ctx.lineWidth = 3;
+            ctx.shadowColor = '#00f0ff';
+            ctx.shadowBlur = 10;
+            ctx.stroke();
+            ctx.shadowBlur = 0; // reset shadow
+
+            // Dibujar punto final latente
+            const finalPt = points[points.length - 1];
+            ctx.beginPath();
+            ctx.arc(finalPt.x, finalPt.y, 6, 0, 2 * Math.PI);
+            ctx.fillStyle = '#00f0ff';
+            ctx.shadowColor = '#00f0ff';
+            ctx.shadowBlur = 15;
+            ctx.fill();
+            ctx.shadowBlur = 0; // reset
+        }
+
+        // Bucle de animación del gráfico
+        function startChartLoop() {
+            initChartData();
+            function loop() {
+                drawChart();
+                setTimeout(() => {
+                    animationId = requestAnimationFrame(loop);
+                }, 1000); // Actualiza cada segundo
+            }
+            loop();
+        }
+
+        if (canvas) {
+            startChartLoop();
+            window.addEventListener('resize', drawChart);
+        }
+
+        // Sistema de Notificaciones Toast
+        const mockAlerts = [
+            "⚡ Alerta de Ballena: 500 BTC transferidos de cartera fría a Binance.",
+            "📈 Bitcoin rompe la resistencia diaria y cotiza a $64,500 USD.",
+            "🔮 Ripple (XRP) registra un aumento de volumen del 18.5% en la última hora.",
+            "🛡️ Red Batatabit: Auditoría completada con éxito. 100% fondos seguros.",
+            "🔥 Gas Fees en Ethereum se encuentran en mínimos históricos."
+        ];
+
+        function createToast(message) {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            toast.className = 'toast glass-card';
+            toast.innerHTML = `
+                <div class="toast-content">
+                    <span class="toast-indicator"></span>
+                    <span class="toast-text">${message}</span>
+                </div>
+                <button class="toast-close" onclick="this.parentElement.remove()">×</button>
+            `;
+            container.appendChild(toast);
+
+            // Auto-eliminar después de 5 segundos
+            setTimeout(() => {
+                toast.classList.add('toast-fadeout');
+                setTimeout(() => toast.remove(), 500);
+            }, 5000);
+        }
+
+        // Lanzar toast periódicamente
+        setInterval(() => {
+            const randIndex = Math.floor(Math.random() * mockAlerts.length);
+            createToast(mockAlerts[randIndex]);
+        }, 12000);
+
+        // Mostrar el primer toast después de 4 segundos
+        setTimeout(() => {
+            createToast("🔥 Bienvenido a Batatabit. Datos de mercado en vivo inicializados.");
+        }, 4000);
+    </script>
 </body>
 </html>
-
-<!-- URL del proyecto: https://www.figma.com/file/sMmlQaZldfDcLERYYWe6h4/Bata-Bit -->
